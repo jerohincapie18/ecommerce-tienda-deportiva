@@ -1,0 +1,174 @@
+:root
+{
+    --footerColor: #e5e5e5;
+}
+
+body
+{   
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+header
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    color: #600c0c;
+    background-color: #e8dbdb;
+      box-sizing: border-box;
+}
+
+.collapse {
+  margin: 0; /* Para que al colapsar no se mueve la iamgen*/
+  padding: 0;
+}
+
+.header-storeSections,
+.header-logo,
+.header-storeOptions {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* espacio entre botones */
+}
+
+.header-logo {
+  margin: 0 auto; /* empuja el logo al centro */
+  text-align: center;
+}
+
+/*pa q se vea igual aunqeu se pueada dar  click*/
+.header-logo a {
+  text-decoration: none;   /* Quita el subrayado */
+  color: inherit;          /* Usa el mismo color que el contenedor */
+}
+/*imagen del inicio*/
+
+.hero-section {
+  margin: 0;
+  padding: 0;
+  height: calc(100vh - 80px); 
+  overflow: hidden; /* Evita que cualquier contenido se desborde */
+}
+
+.hero-section img {
+  width: 100%;
+  height: 100%; /* Obliga a la imagen a respetar el alto del contenedor */
+  object-fit: cover; /* Recorta la imagen para llenar el espacio sin deformarse */
+  object-position: center; /* Centra el recorte de la imagen */
+  display: block;
+}
+
+
+.header-storeOptions, .header-storeSections
+{
+    margin-top: 40px;
+    
+}
+
+.header-storeOptions
+{
+    margin-right: 20px;
+}
+.header-storeSections
+{
+    margin-left: 20px;
+
+}
+
+.store-categories {
+  margin-top: 20px; /* se adapta a la altura de la pantalla */
+  margin-left: 2vw; /* se adapta al ancho */
+}
+
+.main-storeSection {
+  margin-top: 6vh;
+  padding: 0 5vw; /* deja espacio lateral proporcional */
+}
+
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* se ajusta solo */
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  width: 90%; /* deja margen lateral adaptable */
+}
+
+
+.grid-4 li
+{
+    margin: 20px;
+}
+
+.store-article {
+    cursor: pointer;
+    padding-bottom: 2px;
+    display: flex;
+    flex-direction: column;
+    height: 340px; /* Alto total de la tarjeta (Imagen de 250px + Espacio de texto) */
+    overflow: hidden; 
+}
+
+.store-article img {
+    width: 100%;
+    height: 250px; /* La imagen se limita a sus 250px */
+    object-fit: cover;
+    display: block;
+}
+
+.store-article:hover
+{
+    box-shadow: 0 4px 6px rgba(175, 151, 151, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+ 
+}
+
+.article-info
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.show-more-div
+{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+.show-more
+{
+    height: 50px;
+    width: 200px;
+    font-size: 20px;
+}
+
+footer
+{
+    background-color: var(--footerColor); /* Usando parcialmente root */
+    color: #e5e5e5;
+    
+}
+
+button {
+    border: 1px solid #444;
+    background-color: transparent;
+    color: #121042;
+    transition: 0.3s;
+}
+
+button:hover {
+   border-color: #7d1d38; 
+    color: #671d3b; 
+   
+}
+
