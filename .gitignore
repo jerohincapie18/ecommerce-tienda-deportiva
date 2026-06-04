@@ -1,0 +1,6 @@
+backend/config/database.php
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+.DS_Store
+.vscode/
