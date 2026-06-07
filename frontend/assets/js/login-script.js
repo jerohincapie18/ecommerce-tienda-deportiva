@@ -12,7 +12,12 @@ function checkLogin(e)
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify(datos)
-  }).then((respuesta) => respuesta.json()).then((result) => {window.location.href = result.redirect});
+  }).then((respuesta) => respuesta.json()).then((result) => {
+      if(result.success)
+        window.location.href = result.redirect;
+      else
+        alert("error");
+    });
 }
 
 function leerDatos()
