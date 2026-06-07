@@ -13,7 +13,7 @@ echo $var;
 
 <body>
   <h1>
-    hosssla
+    hola administrador
   </h1>
 </body>
 
