@@ -26,12 +26,33 @@ class UserModel
     //le dice al stmt que el email es un string
     $stmt->bind_param("s", $email);
     $stmt->execute();
-    //captura el resultado y se hace el fetch para guardar la fila
+    //captura el resultado y se hace el fetch para guardar la fila en un arreglo asociativo
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
     //se cierra por buena practica
     $stmt->close();
     //retorno usuario para seguirlo manipulando en authcontroller
     return $user;
+  }
+
+  public function registerUser($data)
+  {
+    //rescato los datos
+    $nombre = $data["nombre"];
+    $email = $data["email"];
+    $pass = $data["password"];
+    $rol = $data["rol"];
+    //hasheo la contrasena
+    $passHash = password_hash($data["password"], PASSWORD_DEFAULT); //bcrypt a partir de php 5.5.0
+    //preparo la consulta
+    $stmt = $this->db->prepare("INSERT INTO users (nombre, email, contrasena, rol) VALUES (?, ?, ?, ?)");
+    //le digo al stmt que son cada uno de los ?
+    $stmt->bind_param("ssss", $nombre, $email, $passHash, $rol);
+    //ejecucion y evaluacion del valor devuelto
+    $stmt->execute();
+    //guardo las columnas afectadas (si se realizo la consulta guarda 1, sino -1)
+    $affectedRows = $stmt->affected_rows;
+    $stmt->close();
+    return $affectedRows;
   }
 }

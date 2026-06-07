@@ -23,8 +23,8 @@ class AuthController
     if (empty($data["email"]) || empty($data["password"]))
     {
       http_response_code(404);
-      echo json_encode(["succes" => false, "message" => "Ruta no encontrada"]);
-      return;
+      echo json_encode(["succes" => false, "message" => "Datos incompletos"]);
+      exit();
     }
     
     //encontrer el email en la db
@@ -35,19 +35,55 @@ class AuthController
     {
       if($user["rol"] === "admin")
       {
-
+        $ruta = $this->directions["DIR_ROOT"] . "frontend/pages/admin-dashboard.php";
       } //header("Location: " . $this->directions["DIR_ROOT"] . "frontend/pages/admin-dashboard.php");
       else
       {
-
+        $ruta = $this->directions["DIR_ROOT"] . "frontend/pages/user-dashboard.php";
       }
         //header("Location: ../../frontend/pages/user-dashboard.php");
-      $ruta = $this->directions["DIR_ROOT"] . "frontend/pages/admin-dashboard.php";
+      //$ruta = $this->directions["DIR_ROOT"] . "frontend/pages/admin-dashboard.php";
       echo json_encode([
         "success" => true,
         "redirect" => $ruta
       ]);
-      return;
+      exit();
+    }
+  }
+
+  public function register($data)
+  {
+    //validar que no haya datos vacios
+    if(empty($data["nombre"]) || empty($data["email"]) || empty($data["password"]) || empty($data["rol"]))
+    {
+      http_response_code(400); //bad request
+      echo json_encode(["success" => false, "message" => "Datos incompletos"]);
+      exit();
+    }
+
+    //verifico si existe el usuario
+    $user = $this->userModel->findByEmail($data);
+    //var_dump($user);
+    if($user)
+    {
+      http_response_code(409); //conflicto
+      echo json_encode(["success" => false, "message" => "El usuario ya existe"]);
+      exit();
+    }
+
+    //hace el registro si no hay usuario
+    $userRegister = $this->userModel->registerUser($data);
+    if($userRegister == 1)
+    {
+      http_response_code(201); //codigo para registros exitosos
+      echo json_encode(["success" => true, "message" => "Registro exitoso"]);
+      exit();
+    }
+    else
+    {
+      http_response_code(500); //error del servidor
+      echo json_encode(["success" => false, "message" => "Error al intentar guardar usuario"]);
+      exit();
     }
   }
 }
