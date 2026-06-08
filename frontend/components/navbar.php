@@ -15,7 +15,7 @@ if (session_status() === PHP_SESSION_NONE) {
   <div class="header-storeSections">
     <a href="/ecommerce-tienda-deportiva/frontend/pages/hombre.php"><button>Hombre</button></a>
     <a href="/ecommerce-tienda-deportiva/frontend/pages/mujer.php"><button>Mujer</button></a>
-    <button>Nuevo</button>
+    <a href="/ecommerce-tienda-deportiva/frontend/pages/catalogo.php"><button>Nuevo: Catalogo</button></a>
   </div>
 
   <div class="header-logo">
@@ -25,8 +25,8 @@ if (session_status() === PHP_SESSION_NONE) {
   
   <div class="header-storeOptions">
     
-    <button>favoritos</button>
-    <button>carrito</button>
+    <button>Favoritos</button>
+    <button>Carrito</button>
     <button>
     <?php
       if(isset($_SESSION["user_id"]))
