@@ -33,7 +33,6 @@ CREATE TABLE favoritos (
     producto_id INT NOT NULL,
     fecha_agregado TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     UNIQUE KEY usuario_producto (user_id, producto_id),
-    FOREIGN KEY (user_id) REFERENCES usuarios(id) ON DELETE CASCADE,
-    FOREIGN KEY (producto_id) REFERENCES productos(id) ON DELETE CASCADE,
-    CONSTRAINT pk_fav PRIMARY KEY (id)
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (producto_id) REFERENCES productos(id) ON DELETE CASCADE
 );
