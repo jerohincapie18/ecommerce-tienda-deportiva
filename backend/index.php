@@ -24,6 +24,13 @@ switch ($action)
   case "register":
     $authController->register($data);
     break;
+  case "logout":
+    session_start(); //se conecta al sistema de sesiones 
+    session_unset(); //borra las variables de la sesion
+    session_destroy(); //destruye el archivo del servidor de la sesion
+    header("Location: ../frontend/index.php");
+    exit();
+    break;
   default:
     http_response_code(404);
     echo json_encode(["succes" => false, "message" => "Ruta no encontrada"]);
