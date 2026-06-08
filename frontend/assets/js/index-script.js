@@ -12,7 +12,7 @@ function showMore() // usara prevent default con una query??
             `
                 <li> 
                     <article class="store-article">
-                        <img src="./assets/profilepic.png" alt="">
+                        <img src="./assets/img/profilepic.png" alt="">
                         <div class="article-info">
                             <div class="article-text">
                                 <div>Nombre</div>

@@ -1,6 +1,7 @@
 const mainForm = document.getElementById("main-form");
 const email = document.getElementById("email");
 const contrasena = document.getElementById("contrasena");
+const finalStatus = document.getElementById("finalStatus");
 
 mainForm.addEventListener("submit", checkLogin);
 
@@ -16,7 +17,7 @@ function checkLogin(e)
       if(result.success)
         window.location.href = result.redirect;
       else
-        alert("error");
+        finalStatus.innerHTML = `<p style="color: red;">${result.message}</p>`
     });
 }
 

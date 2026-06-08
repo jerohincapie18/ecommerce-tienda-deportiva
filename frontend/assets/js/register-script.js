@@ -34,7 +34,7 @@ function realizarRegistro(e)
       if(result.success)
       {
          //window.location.href = result.reditect;
-        finalStatus.innerHTML = `<p style="color: green;">Registro exitoso: <span><a href="./login.html">Iniciar sesion</a></span></p>`;
+        finalStatus.innerHTML = `<p style="color: green;">${result.message}: <span><a href="./login.php">Iniciar sesion</a></span></p>`;
       }
       else
       {
