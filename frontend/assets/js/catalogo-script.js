@@ -41,11 +41,13 @@ function cargarProductos()
                     </a>
                     <div class="article-info">
                         <div class="article-text">
+                            <a href="/ecommerce-tienda-deportiva/frontend/pages/producto.php?id=${producto.id}" style="text-decoration: none; color: black;">
                             <div style="font-weight: bold; text-transform: capitalize;">${producto.nombre}</div>
                             <div style="color: #28a745; font-weight: 500;">$${parseFloat(producto.precio).toLocaleString('es-CO')}</div>
+                            </a>
                         </div>
-                        <button style="padding: 2px 8px; align-self: center;">favorito</button>
-                        <button style="padding: 2px 8px; align-self: center;">+ carrito</button>
+                        <button style="padding: 2px 8px; align-self: center;">❤</button>
+                        <button style="padding: 2px 8px; align-self: center;">🛒</button>
                     </div>
                 </article>
             </li>
@@ -59,6 +61,7 @@ function cargarProductos()
     .catch(error => console.error("Error al cargar productos:", error));
 }
 
+//INACTIVA
 function cargarCarrusel() {
   let carouselContainer = document.getElementById("carousel");
   
@@ -71,7 +74,7 @@ function cargarCarrusel() {
       }
 
       productos.forEach((producto, index) => {
-        // 🔑 CORRECCIÓN: Aseguramos que la clase 'active' sea un string real para el primer elemento
+        // Aseguramos que la clase 'active' sea un string real para el primer elemento
         const claseActive = (index === 0) ? 'active' : '';
         
         const slideHTML = `

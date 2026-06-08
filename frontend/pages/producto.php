@@ -31,7 +31,7 @@
 
               <div class="d-flex gap-3">
                   <button id="btn-add-carrito" class="btn btn-dark btn-lg px-5">
-                       Añadir al Carrito
+                       🛒 Añadir al Carrito 
                   </button>
                   <button id="btn-add-favorito" class="btn btn-outline-danger btn-lg px-4">
                       ❤ Favorito

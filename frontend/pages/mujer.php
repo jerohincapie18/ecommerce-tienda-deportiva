@@ -11,133 +11,15 @@
       <header style="margin-bottom: 50px">
         <?php include("../components/navbar.php") ?>
       </header>
- 
+ <div id="categoriaPag" data-cat="mujer" data-id="909090"></div>
     <section class="main-storeSection">
         <ul class="grid-4" id="ulStoreGrid">
-            <li> 
-                <article class="store-article">
-                    <img src="../assets/img/women.jpg" alt="">
-                    <div class="article-info">
-                        <div class="article-text">
-                            <div>Nombre</div>
-                            <div>Precio</div>
-                        </div>
-                        <button>favorito</button>
-                    </div>
-                </article>
-            </li>
-            <li> 
-                <article class="store-article">
-                    <img src="../assets/img/women.jpg" alt="">
-                    <div class="article-info">
-                        <div class="article-text">
-                            <div>Nombre</div>
-                            <div>Precio</div>
-                        </div>
-                        <button>favorito</button>
-                    </div>
-                </article>
-            </li>
-            <li> 
-                <article class="store-article">
-                    <img src="../assets/img/women.jpg" alt="">
-                    <div class="article-info">
-                        <div class="article-text">
-                            <div>Nombre</div>
-                            <div>Precio</div>
-                        </div>
-                        <button>favorito</button>
-                    </div>
-                </article>
-            </li>
-            <li> 
-                <article class="store-article">
-                    <img src="../assets/img/women.jpg" alt="">
-                    <div class="article-info">
-                        <div class="article-text">
-                            <div>Nombre</div>
-                            <div>Precio</div>
-                        </div>
-                        <button>favorito</button>
-                    </div>
-                </article>
-            </li>
-            <li> 
-                <article class="store-article">
-                    <img src="../assets/img/women.jpg" alt="">
-                    <div class="article-info">
-                        <div class="article-text">
-                            <div>Nombre</div>
-                            <div>Precio</div>
-                        </div>
-                        <button>favorito</button>
-                    </div>
-                </article>
-            </li>
-            <li> 
-                <article class="store-article">
-                    <img src="../assets/img/women.jpg" alt="">
-                    <div class="article-info">
-                        <div class="article-text">
-                            <div>Nombre</div>
-                            <div>Precio</div>
-                        </div>
-                        <button>favorito</button>
-                    </div>
-                </article>
-            </li>
-            <li> 
-                <article class="store-article">
-                    <img src="../assets/img/women.jpg" alt="">
-                    <div class="article-info">
-                        <div class="article-text">
-                            <div>Nombre</div>
-                            <div>Precio</div>
-                        </div>
-                        <button>favorito</button>
-                    </div>
-                </article>
-            </li>
-            <li> 
-                <article class="store-article">
-                    <img src="../assets/img/women.jpg" alt="">
-                    <div class="article-info">
-                        <div class="article-text">
-                            <div>Nombre</div>
-                            <div>Precio</div>
-                        </div>
-                        <button>favorito</button>
-                    </div>
-                </article>
-            </li>
-            <li> 
-                <article class="store-article">
-                    <img src="../assets/img/women.jpg" alt="">
-                    <div class="article-info">
-                        <div class="article-text">
-                            <div>Nombre</div>
-                            <div>Precio</div>
-                        </div>
-                        <button>favorito</button>
-                    </div>
-                </article>
-            </li>
-            <li> 
-                <article class="store-article">
-                    <img src="../assets/img/women.jpg" alt="">
-                    <div class="article-info">
-                        <div class="article-text">
-                            <div>Nombre</div>
-                            <div>Precio</div>
-                        </div>
-                        <button>favorito</button>
-                    </div>
-                </article>
-            </li>
+            <!-- contenido -->
         </ul>
     </section>
-</body>
- <footer>
+    <footer>
         <h2>footer</h2>
     </footer>
+    <script src="../assets/js/categoria-script.js"></script>
+</body>
 </html>

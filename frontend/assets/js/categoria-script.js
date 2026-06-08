@@ -1,5 +1,7 @@
 const storeGrid = document.getElementById("ulStoreGrid");
-const btnShowMore = document.getElementById("showMore");
+const categoriaElement = document.getElementById("categoriaPag");
+const categoria = categoriaElement.dataset.cat;
+console.log(categoria);
 
 document.addEventListener("DOMContentLoaded", () => {
   cargarProductos(); 
@@ -8,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function cargarProductos()
 {
   // Se le manda el offset por URL al PHP
-  fetch("/ecommerce-tienda-deportiva/backend/index.php?action=getIndexProducts")
+  fetch(`../../backend/index.php?action=getCategory&category=${categoria}`)
     .then(data => data.text())
     .then((rawData) => {
       const productos = JSON.parse(rawData);
@@ -47,34 +49,7 @@ function cargarProductos()
       });
 
       //se incrementa el offset para el proxmio clic del mostrar mas
-      paginaOffset += limiteProductos;
+      //paginaOffset += limiteProductos;
     })
     .catch(error => console.error("Error al cargar productos:", error));
 }
-
-/* 
-btnShowMore.addEventListener("click", showMore);
-
-function showMore() // usara prevent default con una query?? 
-{
-    for(i=0; i<10; i++)
-    {
-        //cuando se escale, se puede usar un arreglo para rescatar, img, nombre y precio
-        ulStoreGrid.insertAdjacentHTML("beforeend", 
-            `
-                <li> 
-                    <article class="store-article">
-                        <img src="./assets/img/profilepic.png" alt="">
-                        <div class="article-info">
-                            <div class="article-text">
-                                <div>Nombre</div>
-                                <div>Precio</div>
-                            </div>
-                            <button>favorito</button>
-                        </div>
-                    </article>
-                </li>
-            `
-        );
-    }
-} */

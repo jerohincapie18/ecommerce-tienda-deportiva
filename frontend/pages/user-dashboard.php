@@ -17,9 +17,13 @@ if(!isset($_SESSION["user_id"]) || !isset($_SESSION["rol"]))
   <h1><?php echo "hola usuario ". $_SESSION["nombre"];?></h1>
   <button><a href="../../backend/index.php?action=logout">Cerrar sesion</a></button>
   <button><a href="../index.php">Volver a la pagina de inicio</a></button>
-  <a href="/ecommerce-tienda-deportiva/frontend/pages/favoritos.php" style="text-decoration: none;">
-    <button>Favoritos</button>
-</a>
+  <div id="ecommerce-sites" style="margin-top: 20px">
+    <a href="/ecommerce-tienda-deportiva/frontend/pages/favoritos.php" style="text-decoration: none;">
+      <button>Favoritos</button>
+  </a><a href="/ecommerce-tienda-deportiva/frontend/pages/carrito.php" style="text-decoration: none;">
+      <button>CArrito</button>
+  </a>
+  </div>
 </body>
 
 </html>

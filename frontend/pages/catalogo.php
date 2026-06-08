@@ -21,7 +21,7 @@
   </section>
   <section class="main-storeSection">
         <ul class="grid-4" id="ulStoreGrid">
-            
+        </ul>
     </section>
     <div class="show-more-div">
         <button class="show-more" id="showMore">Mostrar más +</button>

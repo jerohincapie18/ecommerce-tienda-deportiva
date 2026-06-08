@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (respuesta.status === 401) {
                 favoritosGrid.innerHTML = `
                     <div class="text-center w-100 my-5" style="grid-column: 1/-1;">
-                        <h3>¡Papi, no has iniciado sesión!</h3>
+                        <h3>No has iniciado sesión!</h3>
                         <p>Debes ingresar a tu cuenta para ver tus favoritos.</p>
                         <a href="login.php" class="btn btn-dark mt-2">Ingresar</a>
                     </div>`;

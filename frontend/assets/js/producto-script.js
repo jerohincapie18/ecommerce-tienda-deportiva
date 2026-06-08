@@ -54,7 +54,7 @@ function agregarAFavoritos(id) {
         .then(respuesta => {
             // Si devuelve 401 significa que no está logueado
             if (respuesta.status === 401) {
-                alert("¡Papi, tienes que iniciar sesión para guardar tus favoritos!");
+                alert("¡Tienes que iniciar sesión para guardar tus favoritos!");
                 // Opcional: Redireccionar al login
                 // window.location.href = "login.php";
                 return null;

@@ -32,9 +32,13 @@ if(!isset($_SESSION["user_id"]) || ($_SESSION["rol"] != "admin"))
     <button type="submit" name="enviarProd">Crear Producto</button>
   </form>
   <div id="finalStatus"></div>
-  <a href="/ecommerce-tienda-deportiva/frontend/pages/favoritos.php" style="text-decoration: none;">
-    <button>Favoritos</button>
-</a>
+  <div id="ecommerce-sites" style="margin-top: 20px">
+    <a href="/ecommerce-tienda-deportiva/frontend/pages/favoritos.php" style="text-decoration: none;">
+      <button>Favoritos</button>
+  </a><a href="/ecommerce-tienda-deportiva/frontend/pages/carrito.php" style="text-decoration: none;">
+      <button>CArrito</button>
+  </a>
+  </div>
 <script src="../assets/js/admin-script.js"></script>
 </body>
 
