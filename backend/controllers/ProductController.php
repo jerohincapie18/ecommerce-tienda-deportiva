@@ -10,6 +10,7 @@ class ProductController
     $this->productModel = new ProductModel();
   }
 
+  //crear producto
   public function create($data, $files)
   {
     //valida que los campos esten llenos
@@ -74,6 +75,7 @@ class ProductController
     }
   }
 
+  //para el carrusel (roto)
   public function getCarousel()
   {
     $carouselProducts = $this->productModel->getCarouselProducts();
@@ -81,6 +83,7 @@ class ProductController
     exit();
   }
 
+  //tomar los productos con un offset para mostrarlos en catalogo
   public function getProducts($limit, $offset)
   {
     $productosPaginados = $this->productModel->getProductsPaginated($limit, $offset);
@@ -88,6 +91,7 @@ class ProductController
     exit();
   }
 
+  //buscar productos por id para la pagina individual de cada producto
   public function getProductById($id)
   {
     $producto = $this->productModel->getProductById($id);
@@ -100,6 +104,22 @@ class ProductController
 
     header("Content-Type: application/json; charset=UTF-8");
     echo json_encode($producto);
+    exit();
+  }
+
+  //buscar los productos por categoria para hombre y mujer
+  public function getProductsByCategory($categoria)
+  {
+    $productos = $this->productModel->getProductByCategory($categoria);
+    echo json_encode($productos);
+    exit();
+  }
+
+  //toma todos los productos para mostrarlos en el index
+  public function getAllProducts()
+  {
+    $productos = $this->productModel->getIndexProducts();
+    echo json_encode($productos);
     exit();
   }
 }

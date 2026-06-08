@@ -49,14 +49,14 @@ class AuthController
 
       if($user["rol"] === "admin")
       {
-        $ruta = $this->directions["DIR_ROOT"] . "frontend/pages/admin-dashboard.php";
-      } //header("Location: " . $this->directions["DIR_ROOT"] . "frontend/pages/admin-dashboard.php");
+        $ruta = $this->directions["DIR_ROOT"] . "/frontend/pages/admin-dashboard.php";
+      } //header("Location: " . $this->directions["DIR_ROOT"] . "/frontend/pages/admin-dashboard.php");
       else
       {
-        $ruta = $this->directions["DIR_ROOT"] . "frontend/pages/user-dashboard.php";
+        $ruta = $this->directions["DIR_ROOT"] . "/frontend/pages/user-dashboard.php";
       }
         //header("Location: ../../frontend/pages/user-dashboard.php");
-      //$ruta = $this->directions["DIR_ROOT"] . "frontend/pages/admin-dashboard.php";
+      //$ruta = $this->directions["DIR_ROOT"] . "/frontend/pages/admin-dashboard.php";
       echo json_encode(["success" => true, "redirect" => $ruta]);
       exit();
     }
