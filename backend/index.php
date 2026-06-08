@@ -7,6 +7,8 @@ header("Content-Type: application/json; charset=UTF-8");
 require("./controllers/AuthController.php");
 require("./controllers/ProductController.php");
 require_once("./models/ProductModel.php");
+require_once("./controllers/FavoritoController.php");
+require_once("./controllers/CartController.php");
 
 //recibe una accion del dom (lo que quiero hacer, login, registro de usuario, de producto, etc)
 $action = trim($_GET['action'] ?? '');
@@ -18,6 +20,8 @@ $data = json_decode($json, true);
 //enrutar las clases
 $authController = new AuthController();
 $productController = new ProductController();
+$favoritoController = new FavoritoController();
+$cartController = new CartController();
 
 //variables adicionales
 //$imagenesCarrusel = $productModel->getCarouselProducts();
@@ -55,6 +59,37 @@ switch ($action)
     $limit = 5;
     $productController->getProducts($limit, $offset);
     break;
+    case "getProductById":
+      $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+      if ($id <= 0) {
+          http_response_code(400);
+          echo json_encode(["success" => false, "message" => "ID de producto no válido"]);
+          exit();
+      }
+      $productController->getProductById($id);
+      break;
+    case "toggleFavorito":
+        $productoId = isset($_GET['producto_id']) ? intval($_GET['producto_id']) : 0;
+        if ($productoId <= 0) {
+            http_response_code(400);
+            echo json_encode(["success" => false, "message" => "ID de producto no válido"]);
+            exit();
+        }
+        $favoritoController->toggleFavorito($productoId);
+        break;
+    case "getFavoritos":
+      $favoritoController->listarFavoritos();
+      break;case "addToCart":
+        $id = isset($_GET['producto_id']) ? intval($_GET['producto_id']) : 0;
+        $cartController->agregar($id);
+        break;
+    case "removeFromCart":
+        $id = isset($_GET['producto_id']) ? intval($_GET['producto_id']) : 0;
+        $cartController->eliminar($id);
+        break;
+    case "getCart":
+        $cartController->listar();
+        break;
   default:
     http_response_code(404);
     echo json_encode(["succes" => false, "message" => "Ruta no encontrada"]);
