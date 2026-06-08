@@ -27,6 +27,7 @@
 
     <section class="main-storeSection">
         <ul class="grid-4" id="ulStoreGrid">
+            <!-- ESTA LISTA HARDCODEADA SE PUEDE ELIMINAR -->
             <li> 
                 <article class="store-article">
                     <img src="./assets/img/profilepic.png" alt="">
@@ -147,6 +148,7 @@
                     </div>
                 </article>
             </li>
+            <!-- borrar hasta aca -->
         </ul>
     </section>
     <div class="show-more-div">
