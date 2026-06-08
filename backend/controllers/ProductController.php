@@ -87,4 +87,19 @@ class ProductController
     echo json_encode($productosPaginados);
     exit();
   }
+
+  public function getProductById($id)
+  {
+    $producto = $this->productModel->getProductById($id);
+    
+    if (!$producto) {
+        http_response_code(404);
+        echo json_encode(["success" => false, "message" => "Producto no encontrado"]);
+        exit();
+    }
+
+    header("Content-Type: application/json; charset=UTF-8");
+    echo json_encode($producto);
+    exit();
+  }
 }
