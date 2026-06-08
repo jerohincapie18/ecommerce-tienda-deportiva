@@ -22,7 +22,7 @@ class AuthController
     //si no hay datos, manda el error y termina el proceso
     if (empty($data["email"]) || empty($data["password"]))
     {
-      http_response_code(404);
+      http_response_code(400);
       echo json_encode(["succes" => false, "message" => "Datos incompletos"]);
       exit();
     }
@@ -30,9 +30,23 @@ class AuthController
     //encontrer el email en la db
     $user = $this->userModel->findByEmail($data);
 
+    //si no encontro nada
+    if(!$user)
+    {
+      http_response_code(401);
+      echo json_encode(["success" => false, "message" => "Usuario o contraseña incorrecta"]);
+      exit();
+    }
+
     //validar contrasena
     if(password_verify($data["password"], $user["contrasena"]))
     {
+      //ahora toca controlar las sesiones para que queden viva en el navegador y poder acceder a los paneles de usuario
+      session_start();
+      $_SESSION["user_id"] = $user["id"];
+      $_SESSION["nombre"] = $user["nombre"];
+      $_SESSION["rol"] = $user["rol"];
+
       if($user["rol"] === "admin")
       {
         $ruta = $this->directions["DIR_ROOT"] . "frontend/pages/admin-dashboard.php";
@@ -43,10 +57,13 @@ class AuthController
       }
         //header("Location: ../../frontend/pages/user-dashboard.php");
       //$ruta = $this->directions["DIR_ROOT"] . "frontend/pages/admin-dashboard.php";
-      echo json_encode([
-        "success" => true,
-        "redirect" => $ruta
-      ]);
+      echo json_encode(["success" => true, "redirect" => $ruta]);
+      exit();
+    }
+    else //si la contrasena es incorecta
+    {
+      http_response_code(401);
+      echo json_encode(["success" => false, "message" => "Usuario o contraseña incorrecta"]);
       exit();
     }
   }
