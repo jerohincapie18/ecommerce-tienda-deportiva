@@ -25,3 +25,15 @@ CREATE TABLE users (
     fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT pk_users PRIMARY KEY (id)
 );
+
+USE users_db;
+CREATE TABLE favoritos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    producto_id INT NOT NULL,
+    fecha_agregado TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE KEY usuario_producto (user_id, producto_id),
+    FOREIGN KEY (user_id) REFERENCES usuarios(id) ON DELETE CASCADE,
+    FOREIGN KEY (producto_id) REFERENCES productos(id) ON DELETE CASCADE,
+    CONSTRAINT pk_fav PRIMARY KEY (id)
+);
