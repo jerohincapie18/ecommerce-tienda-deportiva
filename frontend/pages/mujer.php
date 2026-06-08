@@ -8,35 +8,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-     <header style="margin-bottom: 50px">
-      <nav
-        class="navbar navbar-expand-lg navbar-dark fixed-top py-3"
-        style="
-          background-color: rgb(247, 241, 239);
-          font-family: &quot;Montserrat&quot;, sans-serif;
-          font-weight: 800;
-        "
-      >
-        <div class="header-storeSections">
-          <a href="./hombre.html"><button>Hombre</button></a>
-          <a href="#"><button>Mujer</button></a>
-          <button>Nuevo</button>
-        </div>
-
-        <div class="header-logo">
-          <img src="" alt="" />
-          <a href="../index.html"><h1>LOGO</h1></a>
-          
-        </div>
-       
-        <div class="header-storeOptions">
-          
-          <button>favoritos</button>
-          <button>carrito</button>
-          <button>usuario</button>
-        </div>
-      </nav>
-    </header>
+      <header style="margin-bottom: 50px">
+        <?php include("../components/navbar.php") ?>
+      </header>
  
     <section class="main-storeSection">
         <ul class="grid-4" id="ulStoreGrid">

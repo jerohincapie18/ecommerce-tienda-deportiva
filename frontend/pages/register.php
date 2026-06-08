@@ -12,7 +12,6 @@
             <form action="submit" method = "POST" id="mainForm">
 
                 <h2>Registrar</h2>
-                <?= showError($errors['register']) ?>
 
                 <div id="logNombre"></div>
                 <input type="text" name="nombre" placeholder="Nombre" id="nombre" required>
@@ -32,7 +31,7 @@
 
                 <button type="submit" name="registrar" id="rgButton">Registrar</button>
                 <div id="finalStatus"></div>
-                <p>Ya estoy registrado <a href="./login.html">login</a></p> </form>
+                <p>Ya estoy registrado <a href="./login.php">login</a></p> </form>
     </div>
     <script src="../assets/js/register-script.js"></script>
   </body>

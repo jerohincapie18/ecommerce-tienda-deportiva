@@ -1,3 +1,12 @@
+<?php
+  session_start();
+  if(isset($_SESSION["user_id"]))
+  {
+    header("Location: ../index.php");
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,8 +26,9 @@
                     type="password" name="contrasena" placeholder="Contraseña" id="contrasena" required>
 
                 <button type="submit" name="login"> Login </button>
+                <div id="finalStatus"></div>
                 <p>
-                    No estoy registrado <a href="./register.html">Registrar</a>
+                    No estoy registrado <a href="./register.php">Registrar</a>
                 </p>
             </form>
         </div>
