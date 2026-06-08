@@ -30,7 +30,7 @@ class ProductModel
     return [];
   }
 
-  //consigue los productos para el catalogo
+  //consigue los productos para el catalogo (en orden de creacion)
   public function getAllProducts()
   {
       $query = "SELECT * FROM productos ORDER BY fecha_creacion DESC";
@@ -60,4 +60,28 @@ class ProductModel
     $stmt->close();
     return $data;
   }
+
+  //rescata los productos segun la categoria
+  public function getProductByCategory($categoria)
+  {
+    $stmt = $this->db->prepare("SELECT id, nombre, precio, imagen_url FROM productos WHERE categoria = ?");
+    $stmt->bind_param("s", $categoria);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+    $data = $resultado->fetch_all(MYSQLI_ASSOC);
+    $stmt->close();
+    return $data;
+  }
+
+  //rescata todos los productos sin orden de creacion
+  public function getIndexProducts()
+  {
+    $stmt = $this->db->prepare("SELECT id, nombre, precio, imagen_url FROM productos");
+    $stmt->execute();
+    $resultado = $stmt->get_result(); //rescato el resultado
+    $data = $resultado->fetch_all(MYSQLI_ASSOC); //lo guardo en un arreglo asociativo
+    $stmt->close();
+    return $data;
+  }
+
 }
