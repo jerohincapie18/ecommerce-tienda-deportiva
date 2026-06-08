@@ -90,6 +90,12 @@ switch ($action)
     case "getCart":
         $cartController->listar();
         break;
+    case "getCategory":
+        $productController->getProductsByCategory($_GET["category"]);
+        break;
+    case "getIndexProducts":
+        $productController->getAllProducts();
+        break;
   default:
     http_response_code(404);
     echo json_encode(["succes" => false, "message" => "Ruta no encontrada"]);
