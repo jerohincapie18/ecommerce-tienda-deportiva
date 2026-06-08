@@ -25,8 +25,10 @@ if (session_status() === PHP_SESSION_NONE) {
   
   <div class="header-storeOptions">
     
-    <button>Favoritos</button>
-    <button>Carrito</button>
+    <a href="/ecommerce-tienda-deportiva/frontend/pages/favoritos.php" style="text-decoration: none;">
+      <button>Favoritos</button></a>
+    <a href="/ecommerce-tienda-deportiva/frontend/pages/carrito.php" style="text-decoration: none;">
+      <button>Carrito</button></a>
     <button>
     <?php
       if(isset($_SESSION["user_id"]))
