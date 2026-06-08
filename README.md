@@ -40,7 +40,9 @@ CREATE TABLE favoritos (
     FOREIGN KEY (producto_id) REFERENCES productos(id) ON DELETE CASCADE
 );
 
-INSERTAR CONTENIDO
+INSERTAR CONTENIDO:
+
+
 USE users_db;
 INSERT INTO productos (nombre, descripcion, precio, imagen_url, categoria) VALUES
 ('camisetta', 'coloimva', 200000.00, '/ecommerce-tienda-deportiva/backend/uploads/6a26a717c6ae0diaz1.png', 'hombre'),
