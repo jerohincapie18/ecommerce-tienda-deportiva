@@ -64,8 +64,8 @@ function validarDatos(datoRecibido, msg, log)
  btn.addEventListener("click", () => {
   const datos = {nombre: nombre.value, email: email.value, contrasena: contrasena.value, rol: selectRol.value};
   console.log(datos);
-  logNombre.innerHTML = "hoe";
-  logEmail.innerHTML = "i love LA";
-  logCont.innerHTML = "to live n die in LA";
-  logRol.innerHTML = "nigga";
+  logNombre.innerHTML = "";
+  logEmail.innerHTML = "";
+  logCont.innerHTML = "";
+  logRol.innerHTML = "";
 }); */

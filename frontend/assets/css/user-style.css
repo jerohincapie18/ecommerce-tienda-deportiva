@@ -111,8 +111,13 @@ header {
 
 .info-grid {
   display: grid;
+  /* para q se muestre uno encima de otro
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  */
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
+  margin-bottom: 20px;
 }
 
 .info-item {
