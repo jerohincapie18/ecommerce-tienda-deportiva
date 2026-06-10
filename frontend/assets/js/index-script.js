@@ -47,7 +47,7 @@ function cargarProductos()
       });
 
       //se incrementa el offset para el proxmio clic del mostrar mas
-      paginaOffset += limiteProductos;
+      //paginaOffset += limiteProductos;
     })
     .catch(error => console.error("Error al cargar productos:", error));
 }
