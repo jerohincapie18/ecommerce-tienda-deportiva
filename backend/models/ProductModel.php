@@ -84,4 +84,29 @@ class ProductModel
     return $data;
   }
 
+  //actualizar producto
+  public function updateProduct($pData)
+  {
+    $stmt = $this->db->prepare("UPDATE productos SET nombre = ?, categoria = ?, descripcion = ?, precio = ? WHERE id = ?");
+    $nombre = $pData["nombre"];
+    $categoria = $pData["categoria"];
+    $descripcion = $pData["descripcion"];
+    $id = $pData["id"];
+    $precio = floatval($pData["precio"]);
+    $stmt->bind_param("sssdi", $nombre, $categoria, $descripcion,  $precio, $id);
+    $resultado = $stmt->execute();
+    $stmt->close();
+    return $resultado;
+  }
+  
+  //borrar producto
+  public function deleteProduct($idEliminar)
+  {
+    $stmt = $this->db->prepare("DELETE FROM productos WHERE id = ?");
+    $stmt->bind_param("i", $idEliminar);
+    //rescato si la comnsulta fue exitosa o no
+    $resultado = $stmt->execute();
+    $stmt->close();
+    return $resultado;
+  }
 }

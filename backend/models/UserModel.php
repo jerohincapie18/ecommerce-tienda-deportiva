@@ -55,4 +55,16 @@ class UserModel
     $stmt->close();
     return $affectedRows;
   }
+
+  public function updateProfile($userData, $id)
+  {
+    $userName = $userData["nombre"];
+    $userEmail = $userData["email"];
+    $userId = $id;
+    $stmt = $this->db->prepare("UPDATE users SET nombre = ?, email = ? WHERE id = ?");
+    $stmt->bind_param("ssi", $userName, $userEmail, $userId);
+    $resultado = $stmt->execute();
+    $stmt->close();
+    return $resultado;
+  }
 }
