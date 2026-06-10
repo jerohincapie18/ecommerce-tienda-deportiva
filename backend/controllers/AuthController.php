@@ -46,6 +46,8 @@ class AuthController
       $_SESSION["user_id"] = $user["id"];
       $_SESSION["nombre"] = $user["nombre"];
       $_SESSION["rol"] = $user["rol"];
+      //nuevo para mostrar el correo en los paneles
+      $_SESSION["email"] = $user["email"];
 
       if($user["rol"] === "admin")
       {
@@ -101,6 +103,31 @@ class AuthController
       http_response_code(500); //error del servidor
       echo json_encode(["success" => false, "message" => "Error al intentar guardar usuario"]);
       exit();
+    }
+  }
+
+  public function updateProfile($userData)
+  {
+    //primero verico la contrasena
+    $user = $this->userModel->findByEmail($userData);
+    if(password_verify($userData["password"], $user["contrasena"]))
+    {
+      $userUpdate = $this->userModel->updateProfile($userData, $user["id"]);
+      if($userUpdate)
+      {
+        http_response_code(201);
+        echo json_encode(["success" => true, "message" => "Se actualizaron los datos correctamente"]);
+      }
+      else
+      {
+        http_response_code(500);
+        echo json_encode(["success" => false, "message" => "Error al actualizar los datos"]);
+      }
+    }
+    else
+    {
+      http_response_code(401);
+      echo json_encode(["success" => false, "message" => "Contraseña incorrecta"]);
     }
   }
 }

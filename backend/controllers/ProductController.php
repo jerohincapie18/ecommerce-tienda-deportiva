@@ -122,4 +122,36 @@ class ProductController
     echo json_encode($productos);
     exit();
   }
+
+  public function updateProduct($pData)
+  {
+    $resultado = $this->productModel->updateProduct($pData);
+    if($resultado)
+    {
+      http_response_code(201);
+      echo json_encode(["success" => true, "message" => "Producto actualizado con exito"]);
+    }
+    else
+    {
+      http_response_code(500);
+      echo json_encode(["success" => false, "message" => "Error al actualizar el producto"]);
+
+    }
+  }
+
+  public function deleteProduct($idEliminar)
+  {
+    $resultado = $this->productModel->deleteProduct($idEliminar);
+    if($resultado)
+    {
+      http_response_code(201);
+      echo json_encode(["success" => true, "message" => "Producto eliminado con exito"]);
+    }
+    else
+    {
+      http_response_code(500);
+      echo json_encode(["success" => false, "message" => "Error al eliminar el producto"]);
+
+    }
+  }
 }
