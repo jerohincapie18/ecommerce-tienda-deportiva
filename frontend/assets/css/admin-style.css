@@ -1,0 +1,109 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f7f3f0; 
+  color: #2c2c2c;
+  display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background-color: #e8dbdb; /* azul grisáceo */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.header-storeSections,
+.header-logo,
+.header-storeOptions {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* espacio entre botones */
+}
+
+.header-logo {
+  margin: 0 auto; /* empuja el logo al centro */
+  text-align: center;
+}
+
+/*pa q se vea igual aunqeu se pueada dar  click*/
+.header-logo a {
+  text-decoration: none;   /* Quita el subrayado */
+  color: inherit;          /* Usa el mismo color que el contenedor */
+}
+/*imagen del inicio*/
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  margin: 15px 0;
+}
+
+.menu a {
+  color: #52231f;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: block;
+  transition: background 0.3s;
+}
+
+.menu a:hover {
+  background-color: #edede9; /* al momento de pasar el mouse*/
+  color: #301313;
+  border-left: 4px solid #b04a4a; /* mouse al costado izq*/
+}
+
+/* Usuario */
+.user {
+  text-align: center;
+  border-top: 1px solid #edede9;
+  padding-top: 15px;
+}
+
+.logout {
+  display: inline-block;
+  background-color: #b04a4a;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.logout:hover {
+  background-color: #8c3a3a;
+}
+
+/* Contenido principal */
+.main-content {
+  margin-left: 240px;
+  padding: 30px;
+  flex: 1;
+
+}
+
+/* Formulario */
+.product-form {
+  background-color: #e4dc89; 
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  color: #2c2c2c;
+}
+
+.product-form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 600;
+}
+

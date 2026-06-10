@@ -1,45 +1,83 @@
 <?php
 //aqui va la logina php que protege al panel de administrador
 session_start();
-if(!isset($_SESSION["user_id"]) || ($_SESSION["rol"] != "admin"))
-{
+if (!isset($_SESSION["user_id"]) || ($_SESSION["rol"] != "admin")) {
   header("Location: ../index.php");
   exit();
 }
 ?>
+
 <!DOCTYPE HTML>
 <html>
-<head>
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hombre</title>
+     <link rel="stylesheet" href="../assets/css/admin-style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-  <h1><?php echo "hola administrador ". $_SESSION["nombre"];?></h1>
-  <button><a href="../../backend/index.php?action=logout">Cerrar sesion</a></button>
-  <button><a href="../index.php">Volver a la pagina de inicio</a></button>
-  <form id="uploadProduct" action="submit" style="margin-top: 20px;">
-    <input type="text" placeholder="Nombre" id="nombreProd" name="nombre" required> 
-    <input type="text" placeholder="Descripcion" id="descProd" name="descripcion" required>
-    <input type="number" placeholder="Precio" id="precioProd" name="precio" required>
-    <select name="categoria" id="categoria" required>
-      <option value="">--Seleccione una categoria--</option>
-      <option value="hombre">Hombre</option>
-      <option value="mujer">Mujer</option>
-    </select>
-    <div style="margin: 10px 0;">
-      <label for="imagenProd">Imagen del producto</label>
-      <input type="file" id="imagenProd" name="imagen" accept="image/*" required>
+ <div class="header-logo">
+    <a href="/ecommerce-tienda-deportiva/frontend/index.php">
+        <img src="/ecommerce-tienda-deportiva/frontend/assets/img/logo.png" alt="Logo de la tienda" style="height: 60px; width: auto;" />
+    </a>
+</div>
+
+    <ul class="menu">
+      <li><a href="#">casa</a></li>
+      <li><a href="#">Productos</a></li>
+      <li><a href="#">Pedidos</a></li>
+      <li><a href="#">Usuarios</a></li>
+      <li><a href="#">Métricas</a></li>
+    </ul>
+    <div class="user">
+      <p>Hola Administrador<br><strong><?php echo $_SESSION["nombre"]; ?></strong></p>
+      <a href="../../backend/index.php?action=logout" class="logout">Cerrar Sesión</a>
     </div>
-    <button type="submit" name="enviarProd">Crear Producto</button>
-  </form>
-  <div id="finalStatus"></div>
-  <div id="ecommerce-sites" style="margin-top: 20px">
-    <a href="/ecommerce-tienda-deportiva/frontend/pages/favoritos.php" style="text-decoration: none;">
-      <button>Favoritos</button>
-  </a><a href="/ecommerce-tienda-deportiva/frontend/pages/carrito.php" style="text-decoration: none;">
-      <button>CArrito</button>
-  </a>
   </div>
-<script src="../assets/js/admin-script.js"></script>
+
+  <div class="main-content">
+    <h2>Gestión de Productos</h2>
+
+    <h3>Crear Nuevo Producto</h3>
+
+    <form id="uploadProduct" action="submit" class="product-form">
+      <label>Nombre del Producto</label>
+      <input type="text" id="nombreProd" name="nombre" required>
+
+      <label>Descripción</label>
+      <input type="text" id="descProd" name="descripcion" required>
+
+      <div class="form-row">
+        <div>
+          <label>Precio</label>
+          <input type="number" id="precioProd" name="precio" required>
+        </div>
+        <div>
+          <label>Categoría</label>
+          <select name="categoria" id="categoria" required>
+            <option value="">--Seleccione--</option>
+            <option value="hombre">Hombre</option>
+            <option value="mujer">Mujer</option>
+          </select>
+        </div>
+      </div>
+
+      <label>Imagen del producto</label>
+      <div class="upload-box">
+        <input type="file" id="imagenProd" name="imagen" accept="image/*" required>
+      </div>
+
+      <button type="submit" name="enviarProd" class="btn-submit">Crear Producto</button>
+    </form>
+
+    <div id="finalStatus"></div>
+  </div>
+
+  <script src="../assets/js/admin-script.js"></script>
 </body>
+
+
 
 </html>
