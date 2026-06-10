@@ -48,6 +48,7 @@ class ProductController
           "nombre" => $data["nombre"],
           "descripcion" => $data["descripcion"],
           "precio" => floatval($data["precio"]),
+          "stock" => $data["stock"],
           "categoria" => $data["categoria"],
           "imagen_url" => $urlDB
         ];
@@ -153,5 +154,21 @@ class ProductController
       echo json_encode(["success" => false, "message" => "Error al eliminar el producto"]);
 
     }
+  }
+
+  public function getProductsFullData()
+  {
+    $productos = $this->productModel->getProductsFullData();
+    http_response_code(201);
+    echo json_encode($productos);
+    exit();
+  }
+
+  public function doSearch($busqueda)
+  {
+    $productos = $this->productModel->doModelSearch($busqueda);
+    http_response_code(201);
+    echo json_encode($productos);
+    exit();
   }
 }

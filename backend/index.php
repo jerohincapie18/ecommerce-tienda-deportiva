@@ -106,6 +106,13 @@ switch ($action)
     case "updateProfile":
         $authController->updateProfile($data);
       break;
+    case "getAdminProducts":
+      $productController->getProductsFullData();
+      break;
+    case "displaySearch":
+      $busqueda = $_GET["busqueda"];
+      $productController->doSearch($busqueda);
+      break;
   default:
     http_response_code(404);
     echo json_encode(["succes" => false, "message" => "Ruta no encontrada"]);
