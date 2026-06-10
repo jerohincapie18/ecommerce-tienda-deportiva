@@ -84,6 +84,7 @@ if (!isset($_SESSION["user_id"]) || ($_SESSION["rol"] != "admin")) {
   <div class="actions">
       <a href="#section-crear" class="action-btn"><i class="fa-solid fa-plus"></i> Registrar Producto</a>
       <a href="#section-gestion" class="action-btn"><i class="fa-solid fa-boxes-stacked"></i> Inventario & Edición</a>
+      <a href="#section-tabla" class="action-btn"><i class="fa-solid fa-list"></i> Ver Inventario</a>
   </div>
 
   <div class="container my-4">
@@ -179,6 +180,37 @@ if (!isset($_SESSION["user_id"]) || ($_SESSION["rol"] != "admin")) {
               </div>
           </form>
           <div id="gestionStatus" class="mt-3 text-center fw-bold"></div>
+      </section>
+
+      <section id="section-tabla" class="admin-section">
+          <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2" style="border-color: #d9bcbc !important;">
+              <h3 class="m-0" style="border: none; padding: 0;"><i class="fa-solid fa-list-check"></i> Productos en Base de Datos</h3>
+              <button type="button" id="btnRefrescarTabla" class="btn btn-sm btn-custom-vino">
+                  <i class="fa-solid fa-rotate"></i> Actualizar Tabla
+              </button>
+          </div>
+          <p class="text-muted">Lista completa del inventario actual disponible en la tienda.</p>
+
+          <div class="table-responsive" style="background: #fff; border-radius: 8px; border: 1px solid #d9bcbc; padding: 10px;">
+              <table class="table table-hover align-middle m-0">
+                  <thead style="background-color: #f8eaea; color: #5a2a2a;">
+                      <tr>
+                          <th scope="col" class="fw-bold" style="color: #5a2a2a;">ID</th>
+                          <th scope="col" class="fw-bold" style="color: #5a2a2a;">Miniatura</th>
+                          <th scope="col" class="fw-bold" style="color: #5a2a2a;">Nombre</th>
+                          <th scope="col" class="fw-bold" style="color: #5a2a2a;">Categoría</th>
+                          <th scope="col" class="fw-bold" style="color: #5a2a2a;">Precio</th>
+                          <th scope="col" class="fw-bold" style="color: #5a2a2a;">Stock</th>
+                          <th scope="col" class="fw-bold text-center" style="color: #5a2a2a;">Acción</th>
+                      </tr>
+                  </thead>
+                  <tbody id="tbodyProductos">
+                      <tr>
+                          <td colspan="7" class="text-center text-muted py-4">Cargando inventario...</td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
       </section>
 
   </div>

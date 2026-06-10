@@ -42,7 +42,7 @@ if (!$item) {
                 <span class="badge bg-secondary mb-2 text-uppercase"><?php echo $item['categoria']; ?></span>
                 <h1 class="display-5 fw-bold"><?php echo $item['nombre']; ?></h1>
                 <p class="fs-3 text-success my-3 fw-bold">$<?php echo number_format($item['precio'], 2); ?></p>
-                
+                <p class="fs-3 text-success my-3 fw-bold"><?php echo $item['stock']; ?></p>
                 <hr>
                 
                 <h5>Descripción del Producto</h5>

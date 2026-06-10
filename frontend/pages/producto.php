@@ -24,6 +24,7 @@
               <h1 id="det-nombre" class="text-capitalize mb-2" style="color: #121042;">Cargando producto...</h1>
               <span id="det-categoria" class="badge bg-secondary align-self-start mb-3 text-uppercase">Categoría</span>
               <h2 id="det-precio" class="text-success fw-bold mb-4">$0</h2>
+              <p class="text-muted mb-4">Stock disponible: <span id="det-stock" class="fw-bold text-dark">0</span> unidades</p>
               
               <p id="det-descripcion" class="text-muted mb-5">
                   Cargando la descripción detallada del producto desde la base de datos...
