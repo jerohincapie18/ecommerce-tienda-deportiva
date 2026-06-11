@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(data => {
             if (data.success) {
                 statusPerfil.style.color = "#28a745";
-                statusPerfil.innerText = "¡Melo! Perfil actualizado correctamente.";
+                statusPerfil.innerText = "Melo Perfil actualizado correctamente.";
                 
                 // se bloquean de nuebvo los campos y limpiamos el de password
                 inputNombre.setAttribute("disabled", "true");

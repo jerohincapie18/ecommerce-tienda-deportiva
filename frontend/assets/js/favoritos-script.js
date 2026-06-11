@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     <div style="font-weight: bold; text-transform: capitalize;">${producto.nombre}</div>
                                     <div style="color: #28a745; font-weight: 500;">$${parseFloat(producto.precio).toLocaleString('es-CO')}</div>
                                 </div>
-                                <button onclick="eliminarDeFavoritos(${producto.id})" class="btn btn-sm btn-danger text-white style="align-self: center;">❌</button>
+                                <button onclick="eliminarDeFavoritos(${producto.id})" class="btn btn-sm btn-danger text-white" style="align-self: center;">Eliminar</button>
                             </div>
                         </article>
                     </li>

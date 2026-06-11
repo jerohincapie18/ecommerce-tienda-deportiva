@@ -1,5 +1,6 @@
+const btnFavorito = document.getElementById("btn-add-favorito");
 document.addEventListener("DOMContentLoaded", () => {
-    // 🛠️ 1. Extraer el ID de la URL (?id=X)
+    //extraer el ID de la URL (?id=X)
     const params = new URLSearchParams(window.location.search);
     const productoId = params.get("id");
 
@@ -9,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    // 🚀 2. Pedir la información del producto al backend
+    //pedir la informacion del producto al backend
     fetch(`../../backend/index.php?action=getProductById&id=${productoId}`)
         .then(respuesta => respuesta.json())
         .then(producto => {
@@ -18,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // 🎯 3. Sembrar los datos en el HTML
+            //Sembrar los datos en el HTML
             document.getElementById("det-nombre").innerText = producto.nombre;
             document.getElementById("det-categoria").innerText = producto.categoria;
             document.getElementById("det-descripcion").innerText = producto.descripcion ? producto.descripcion : "Sin descripción disponible para este artículo.";
@@ -26,14 +27,18 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("det-precio").innerText = `$${parseFloat(producto.precio).toLocaleString('es-CO')}`;
             document.getElementById("det-imagen").src = producto.imagen_url;
             document.getElementById("det-imagen").alt = producto.nombre;
+            document.title = `${producto.nombre} - Tienda Deportiva`;
 
-            // 🛒 4. Escuchadores temporales para los botones (los programamos en el siguiente paso)
+            //scuchadores temporales para los botones (los programamos en el siguiente paso)
             document.getElementById("btn-add-carrito").addEventListener("click", () => agregarAlCarrito(producto.id));
             document.getElementById("btn-add-favorito").addEventListener("click", () => agregarAFavoritos(producto.id));
         })
         .catch(error => {
             console.error("Error obteniendo el detalle del producto:", error);
         });
+
+        //verifica que el producto sea favorito
+        validarFavoritos(productoId);
 });
 
 function agregarAlCarrito(id) {
@@ -49,15 +54,14 @@ function agregarAlCarrito(id) {
 }
 
 function agregarAFavoritos(id) {
-    const btnFavorito = document.getElementById("btn-add-favorito");
 
     fetch(`../../backend/index.php?action=toggleFavorito&producto_id=${id}`)
         .then(respuesta => {
             // Si devuelve 401 significa que no está logueado
             if (respuesta.status === 401) {
                 alert("¡Tienes que iniciar sesión para guardar tus favoritos!");
-                // Opcional: Redireccionar al login
-                // window.location.href = "login.php";
+                //se podria redireccionarl al login
+                // window.location.href = "../pages/login.php";
                 return null;
             }
             return respuesta.json();
@@ -66,7 +70,7 @@ function agregarAFavoritos(id) {
             if (!data) return;
 
             if (data.success) {
-                // 💅 Cambio visual dinámico en el botón según la respuesta
+                //cambio visual dinamico en el botón según la respuesta
                 if (data.status === "added") {
                     btnFavorito.innerText = "❤️ En Favoritos";
                     btnFavorito.classList.remove("btn-outline-danger");
@@ -80,4 +84,17 @@ function agregarAFavoritos(id) {
             }
         })
         .catch(error => console.error("Error al gestionar favorito:", error));
+}
+
+function validarFavoritos(idProd)
+{
+    fetch(`../../backend/index.php?action=checkFavs&prodId=${idProd}`).then(raw => raw.json()).then(favoritos => {
+        if(favoritos.success)
+        {
+            btnFavorito.innerText = "❤️ En Favoritos";
+            btnFavorito.classList.remove("btn-outline-danger");
+            btnFavorito.classList.add("btn-danger");
+        }
+        console.log(favoritos.message);
+    });
 }
