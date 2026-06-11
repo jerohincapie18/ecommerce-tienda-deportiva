@@ -27,5 +27,7 @@
         <button class="show-more" id="showMore">Mostrar más +</button>
     </div>
     <script src="../assets/js/catalogo-script.js"></script>
+
+    <?php include("../components/footer.php"); ?>
 </body>
 </html>

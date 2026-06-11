@@ -18,15 +18,14 @@ if (!isset($_SESSION["user_id"]) || ($_SESSION["rol"] != "admin")) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
- <div class="header-logo">
+ <div class="sidebar">
     <a href="/ecommerce-tienda-deportiva/frontend/index.php">
         <img src="/ecommerce-tienda-deportiva/frontend/assets/img/logo.png" alt="Logo de la tienda" style="height: 60px; width: auto;" />
     </a>
-</div>
-
+    
     <ul class="menu">
-      <li><a href="#">casa</a></li>
-      <li><a href="#">Productos</a></li>
+      <li><a href="/ecommerce-tienda-deportiva/frontend/index.php">casa</a></li>
+      <li><a href="catalogo.php">Productos</a></li>
       <li><a href="#">Pedidos</a></li>
       <li><a href="#">Usuarios</a></li>
       <li><a href="#">Métricas</a></li>
@@ -36,11 +35,14 @@ if (!isset($_SESSION["user_id"]) || ($_SESSION["rol"] != "admin")) {
       <a href="../../backend/index.php?action=logout" class="logout">Cerrar Sesión</a>
     </div>
   </div>
+</div>
+
+   
 
   <div class="main-content">
     <h2>Gestión de Productos</h2>
 
-    <h3>Crear Nuevo Producto</h3>
+    <h4>Crear Nuevo Producto</h4>
 
     <form id="uploadProduct" action="submit" class="product-form">
       <label>Nombre del Producto</label>

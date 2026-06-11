@@ -15,7 +15,7 @@
       <?php include("./components/navbar.php") ?>
     </header>
   <section class="hero-section">
-       <img src="./assets/img/mar.jpg" alt="" />
+       <img src="./assets/img/bannertres.jpg" alt="" />
   </section>
 
     <section class="store-categories">
@@ -34,10 +34,8 @@
         <button class="show-more" id="showMore">Mostrar más +</button>
     </div>
 
-    <footer>
-        <h2>footer</h2>
-    </footer>
-
+    <?php include("components/footer.php"); ?>
+    
     <script src="./assets/js/index-script.js"></script>
 </body>
 </html>
