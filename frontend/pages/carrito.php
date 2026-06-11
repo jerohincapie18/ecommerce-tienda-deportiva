@@ -13,7 +13,7 @@
   </header>
 
   <div class="container my-5">
-      <h2 style="color: #121042; font-weight: 800;" class="text-uppercase mb-4">🛒 Mi Carrito de Compras</h2>
+      <h2 style="color: #600c0c; font-weight: 800;" class="text-uppercase mb-4">🛒 Mi Carrito de Compras</h2>
       
       <div class="row g-4">
           <div class="col-lg-8">
@@ -36,17 +36,17 @@
 
           <div class="col-lg-4">
               <div style="background: rgb(247, 241, 239); border: 1px solid #ddd; border-radius: 8px; padding: 25px;">
-                  <h4 style="color: #121042; font-weight: bold;" class="mb-4">Resumen del Pedido</h4>
+                  <h4 style="color: #600c0c; font-weight: bold;" class="mb-4">Resumen del Pedido</h4>
                   <div class="d-flex justify-content-between mb-3" style="font-size: 1.1rem;">
                       <span>Total Productos:</span>
                       <span id="cart-total-productos" class="fw-bold">0</span>
                   </div>
                   <hr>
-                  <div class="d-flex justify-content-between mb-4" style="font-size: 1.3rem; color: #28a745; font-weight: bold;">
+                  <div class="d-flex justify-content-between mb-4" style="font-size: 1.3rem; color: #1a622a; font-weight: bold;">
                       <span>Total Neto:</span>
                       <span id="cart-total-pagar">$0</span>
                   </div>
-                  <button class="btn btn-dark w-100 btn-lg py-3" onclick="alert('¡Compra simulada con éxito!')">
+                  <button class="btn btn-dark w-100 btn-lg py-3"  style="background-color:#600c0c; border-color:#600c0c;" onclick="alert('¡Compra simulada con éxito!')">
                       Proceder al Pago
                   </button>
               </div>
@@ -55,5 +55,6 @@
   </div>
 
   <script src="../assets/js/carrito-script.js"></script>
+  <?php include("../components/footer.php"); ?>
 </body>
 </html>

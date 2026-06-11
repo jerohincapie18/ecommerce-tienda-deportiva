@@ -1,8 +1,8 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f7f3f0; 
-  color: #2c2c2c;
+  background-color: #0f172a;
+  color: #ae8686;
   display: flex;
 }
 
@@ -10,7 +10,7 @@ body {
 .sidebar {
   width: 240px;
   height: 100vh;
-  background-color: #e8dbdb; /* azul grisáceo */
+  background-color: #e8dbdb;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -20,25 +20,13 @@ body {
   top: 0;
 }
 
-.header-storeSections,
-.header-logo,
-.header-storeOptions {
-  display: flex;
-  align-items: center;
-  gap: 10px; /* espacio entre botones */
-}
-
-.header-logo {
-  margin: 0 auto; /* empuja el logo al centro */
+.logo {
   text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  
 }
 
-/*pa q se vea igual aunqeu se pueada dar  click*/
-.header-logo a {
-  text-decoration: none;   /* Quita el subrayado */
-  color: inherit;          /* Usa el mismo color que el contenedor */
-}
-/*imagen del inicio*/
 .menu {
   list-style: none;
   padding: 0;
@@ -50,7 +38,7 @@ body {
 }
 
 .menu a {
-  color: #52231f;
+  color: #300316;
   text-decoration: none;
   padding: 10px 20px;
   display: block;
@@ -58,22 +46,22 @@ body {
 }
 
 .menu a:hover {
-  background-color: #edede9; /* al momento de pasar el mouse*/
-  color: #301313;
-  border-left: 4px solid #b04a4a; /* mouse al costado izq*/
+  background-color: #d7c7c7;  /*efecto al pasar mouse*/
+  color: #500505;
+  border-left: 4px solid #5b0f1c;
 }
 
 /* Usuario */
 .user {
   text-align: center;
-  border-top: 1px solid #edede9;
+  border-top: 1px solid #334155;
   padding-top: 15px;
 }
 
 .logout {
   display: inline-block;
-  background-color: #b04a4a;
-  color: #fff;
+  background-color: #711920;
+  color: #eff3fa;
   padding: 8px 12px;
   border-radius: 6px;
   text-decoration: none;
@@ -81,7 +69,7 @@ body {
 }
 
 .logout:hover {
-  background-color: #8c3a3a;
+  background-color: #3f1d1d;
 }
 
 /* Contenido principal */
@@ -89,16 +77,23 @@ body {
   margin-left: 240px;
   padding: 30px;
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+.main-content h2 {
+  text-align: center;
+  color: #440404;
 }
 
 /* Formulario */
 .product-form {
-  background-color: #e4dc89; 
+  background-color: #e8dbdb;
   padding: 20px;
   border-radius: 10px;
   max-width: 600px;
-  color: #2c2c2c;
+
 }
 
 .product-form label {
@@ -107,3 +102,40 @@ body {
   font-weight: 600;
 }
 
+.product-form input,
+.product-form select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 6px;
+  background-color: #ffffff; /*casillas del formulario*/
+  color: #fff;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.upload-box {
+  border: 2px dashed #600c0c; /*decoracion exterior de subir imagen*/
+  padding: 20px;
+  text-align: center;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.btn-submit {
+  margin-top: 20px;
+  background-color: #600c0c; /*crear producto*/
+  border: none;
+  color: #e6e8ec;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background-color: #551616;
+}

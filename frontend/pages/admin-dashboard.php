@@ -64,7 +64,7 @@ if (!isset($_SESSION["user_id"]) || ($_SESSION["rol"] != "admin")) {
     </style>
 </head>
 <body>
-
+ 
   <header>
     <div class="header-logo">
         <a href="/ecommerce-tienda-deportiva/frontend/index.php">
@@ -86,6 +86,9 @@ if (!isset($_SESSION["user_id"]) || ($_SESSION["rol"] != "admin")) {
       <a href="#section-gestion" class="action-btn"><i class="fa-solid fa-boxes-stacked"></i> Inventario & Edición</a>
       <a href="#section-tabla" class="action-btn"><i class="fa-solid fa-list"></i> Ver Inventario</a>
   </div>
+</div>
+
+   
 
   <div class="container my-4">
       
@@ -127,6 +130,7 @@ if (!isset($_SESSION["user_id"]) || ($_SESSION["rol"] != "admin")) {
           <div id="finalStatus" class="mt-3 text-center fw-bold"></div>
       </section>
 
+    <h4>Crear Nuevo Producto</h4>
       <section id="section-gestion" class="admin-section">
           <h3><i class="fa-solid fa-sliders"></i> Control de Inventario</h3>
           <p class="text-muted">Busca un producto por ID para modificar sus valores globales o sacarlo de las vitrinas.</p>

@@ -17,9 +17,8 @@
              <!-- contenido -->
         </ul>
     </section>
-  <footer>
-        <h2>footer</h2>
-  </footer>
+<?php include("../components/footer.php"); ?>
+
     <script src="../assets/js/categoria-script.js"></script>
 </body>
 </html>

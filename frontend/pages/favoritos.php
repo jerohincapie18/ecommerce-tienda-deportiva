@@ -23,5 +23,6 @@
   </main>
 
   <script src="../assets/js/favoritos-script.js"></script>
+  <?php include("../components/footer.php"); ?>
 </body>
 </html>
