@@ -6,6 +6,7 @@
     <title>Khella - Catalogo</title>
     <link rel="stylesheet" href="../assets/css/index-style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../assets/img/logo-w.ico" type="image/x-icon">
 </head>
 <body>
   <header style="margin-bottom: 50px">
@@ -13,10 +14,6 @@
   </header>
   <section class="main-carousel" id="mainCarousel">
     <div class="carousel" id="carousel">
-    </div>
-    <div class="controls">
-        <button onclick="mover(-1)">Anterior</button>
-        <button onclick="mover(1)">Siguiente</button>
     </div>
   </section>
   <section class="main-storeSection">

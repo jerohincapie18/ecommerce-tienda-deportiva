@@ -15,15 +15,17 @@ if (!isset($_SESSION["user_id"]) || ($_SESSION["rol"] != "admin")) {
     <link rel="stylesheet" href="../assets/css/user-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../assets/img/logo-w.ico" type="image/x-icon">
     <style>
-        /* Ajustes específicos para mantener orden de los formularios de administración */
+        /* Ajustes específicos responsivos para formularios de administración */
         .admin-section {
             background-color: #fdfaf8;
             border-radius: 10px;
             padding: 30px;
             margin: 30px auto;
-            width: 80%;
+            width: 80%; /* Ancho en PC */
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: width 0.3s ease;
         }
         .admin-section h3 {
             color: #5a2a2a;
@@ -61,33 +63,60 @@ if (!isset($_SESSION["user_id"]) || ($_SESSION["rol"] != "admin")) {
             background-color: #fff;
             color: #5a2a2a;
         }
+
+        
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 30px auto;
+            padding: 0 15px;
+            max-width: 900px;
+            flex-wrap: wrap; /*Envuelve los botones si no caben en una línea */
+        }
+        .action-btn {
+            flex: 1;
+            min-width: 200px; /* tamano minimo */
+            background-color: #5a2a2a;
+            color: #fff;
+            text-align: center;
+            padding: 12px 15px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: 0.3s;
+            font-size: 14px;
+        }
+        .action-btn:hover { background-color: #fff; color: #5a2a2a; border: 1px solid #5a2a2a; }
+
+        @media (max-width: 767.98px) {
+            .admin-section {
+                width: 95% !important; 
+                padding: 15px;
+            }
+            .action-btn {
+                width: 100%; 
+                flex: none;
+            }
+        }
     </style>
 </head>
-<body>
- 
-  <header>
-    <div class="header-logo">
-        <a href="/ecommerce-tienda-deportiva/frontend/index.php">
-            <img src="/ecommerce-tienda-deportiva/frontend/assets/img/logo.png" alt="Logo de la tienda" style="height: 60px; width: auto;" />
-        </a>
-    </div>
-    <h2 class="user-name"><i class="fa-solid fa-user-shield"></i>Administrador: <?php echo $_SESSION["nombre"]; ?></h2>
-    <h2 class="user-name">Correo: <?php echo $_SESSION["email"]; ?></h2>
-    <a href="../../backend/index.php?action=logout" class="logout-btn">
-      <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
-    </a>
-  </header>
+<body style="padding-top: 100px;">
 
-  <section class="hero">
-    <img src="../assets/img/mar.jpg" alt="Fondo operativo">
+  <?php include("../components/navbar.php") ?>
+
+  <section class="hero" style="width:100%; height:180px; overflow:hidden;">
+    <img src="../assets/img/mar.jpg" alt="Fondo operativo" style="width:100%; height:100%; object-fit:cover;">
   </section>
 
   <div class="actions">
       <a href="#section-crear" class="action-btn"><i class="fa-solid fa-plus"></i> Registrar Producto</a>
       <a href="#section-gestion" class="action-btn"><i class="fa-solid fa-boxes-stacked"></i> Inventario & Edición</a>
       <a href="#section-tabla" class="action-btn"><i class="fa-solid fa-list"></i> Ver Inventario</a>
+    <a href="../../backend/index.php?action=logout" class="logout-btn">
+      <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+    </a>
   </div>
-</div>
 
    
 

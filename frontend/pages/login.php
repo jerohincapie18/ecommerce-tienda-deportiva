@@ -13,6 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Khella - Log in</title>
     <link href="../assets/css/login-register-style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../assets/img/logo-w.ico" type="image/x-icon">
   </head>
   <body>
    <div class="container">
