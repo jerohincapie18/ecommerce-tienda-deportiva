@@ -172,3 +172,52 @@ button:hover {
    
 }
 
+#ulStoreGrid {
+    display: grid;
+    /* Mantiene las columnas automáticas de mínimo 250px */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto; /* Centra el bloque contenedor en la pantalla */
+    
+    /* 🌟 EL TRUCO CLAVE: Centra las tarjetas de forma horizontal dentro de la grilla */
+    justify-content: center; 
+}
+
+.store-article {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Mantiene las tarjetas alineadas */
+}
+
+.store-article img {
+    width: 100%;
+    height: 280px;        /* Fijas una altura estándar para la vitrina */
+    object-fit: cover;    /* 🌟 EL TRUCO CLAVE: Recorta y ajusta la imagen de forma inteligente sin deformarla */
+    display: block;
+}
+
+#ulFavoritosGrid {
+    display: grid !important; /* Forzamos que se comporte como Grid */
+    /* Crea columnas automáticas de mínimo 250px. Si hay pocos elementos, no se estiran */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    
+    /* 🌟 EL TRUCO CLAVE: Mantiene los cuadritos centrados si hay poquitos */
+    justify-content: center; 
+}
+
+/* Aprovechamos de blindar las imágenes de favoritos para que usen el contain/cover y no se rompan */
+#ulFavoritosGrid .store-article img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover; /* O 'contain' si prefieres que se vea la prenda completa con fondo */
+    display: block;
+}
