@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle del Producto</title>
+    <title>Producto</title>
     <link rel="stylesheet" href="../assets/css/index-style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -15,10 +15,17 @@
   <div class="container my-5">
       <div class="row g-5">
           <div class="col-md-6">
-              <div class="product-image-container" style="border: 1px solid #ddd; overflow:hidden; border-radius: 8px;">
-                  <img id="det-imagen" src="" alt="Cargando..." class="img-fluid w-100" style="height: 500px; object-fit: cover;">
-              </div>
-          </div>
+            <div class="product-image-container d-flex align-items-center justify-content-center shadow-sm" 
+                    style="overflow: hidden; border-radius: 12px; background-color: #fdfaf8; height: 550px; width: 100%;">
+                
+                <img id="det-imagen" src="" alt="Cargando producto..." class="img-fluid" 
+                        style="max-height: 100%; max-width: 100%; object-fit: contain; display: block; border: none; outline: none;">
+                        
+            </div>
+      <button onclick="window.history.back();" class="btn-volver" style="margin-top: 20px">
+          <i class="fa-solid fa-arrow-left"></i><-- Volver atrás
+      </button>
+        </div>
           
           <div class="col-md-6 d-flex flex-column justify-content-center">
               <h1 id="det-nombre" class="text-capitalize mb-2" style="color: #121042;">Cargando producto...</h1>
@@ -41,7 +48,6 @@
           </div>
       </div>
   </div>
-
   <script src="../assets/js/producto-script.js"></script>
 </body>
 </html>

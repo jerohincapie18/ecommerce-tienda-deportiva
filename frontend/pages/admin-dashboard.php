@@ -68,7 +68,7 @@ if (!isset($_SESSION["user_id"]) || ($_SESSION["rol"] != "admin")) {
   <header>
     <div class="header-logo">
         <a href="/ecommerce-tienda-deportiva/frontend/index.php">
-            <h1>LOGO</h1>
+            <img src="/ecommerce-tienda-deportiva/frontend/assets/img/logo.png" alt="Logo de la tienda" style="height: 60px; width: auto;" />
         </a>
     </div>
     <h2 class="user-name"><i class="fa-solid fa-user-shield"></i> Modo Administrador: <?php echo $_SESSION["nombre"]; ?></h2>

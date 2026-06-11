@@ -11,7 +11,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Log in</title>
+    <title>Khella - Log in</title>
     <link href="../assets/css/login-register-style.css" rel="stylesheet">
   </head>
   <body>
@@ -28,6 +28,7 @@
                 <div id="finalStatus"></div>
                 <p>
                     No estoy registrado <a href="./register.php">Registrar</a>
+                <p><a href="../index.php">Regresar al home</a></p>
                 </p>
             </form>
         </div>

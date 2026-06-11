@@ -10,7 +10,7 @@ if(!isset($_SESSION["user_id"]) || !isset($_SESSION["rol"])) {
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Panel de Usuario</title>
+  <title>Khella - Panel de Usuario</title>
   <link rel="stylesheet" href="../assets/css/user-style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>

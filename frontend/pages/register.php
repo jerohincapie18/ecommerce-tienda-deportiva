@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
+    <title>Khella - Registro</title>
     <link href="../assets/css/login-register-style.css" rel="stylesheet">
   </head>
   <body>
@@ -31,7 +31,9 @@
 
                 <button type="submit" name="registrar" id="rgButton">Registrar</button>
                 <div id="finalStatus"></div>
-                <p>Ya estoy registrado <a href="./login.php">login</a></p> </form>
+                <p>Ya estoy registrado <a href="./login.php">login</a></p>
+                <p><a href="../index.php">Regresar al home</a></p>
+            </form>
     </div>
     <script src="../assets/js/register-script.js"></script>
   </body>

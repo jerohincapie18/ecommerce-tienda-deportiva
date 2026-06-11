@@ -3,6 +3,8 @@ session_start();
 require_once '../../backend/config/conexion.php'; 
 require_once '../../backend/models/ProductModel.php';
 
+//no se esta usando esta pntalla
+
 // 1. Atrapar el ID de la URL. Si no viene ninguno, lo mandamos al index
 if (!isset($_GET['id']) || empty($_GET['id'])) {
     header("Location: /ecommerce-tienda-deportiva/frontend/index.php");
@@ -14,7 +16,7 @@ $idProducto = intval($_GET['id']); // intval limpia el dato para que sea un núm
 $productModel = new ProductModel($db);
 $item = $productModel->getProductById($idProducto);
 
-// 2. Si el ID no coincide con ningún producto en la BD... ¡404 real o redirección!
+// 2. Si el ID no coincide con ningún producto en la BD 404 real o redirecccion
 if (!$item) {
     echo "<h1>El producto que buscas no existe.</h1>";
     echo "<a href='/ecommerce-tienda-deportiva/frontend/index.php'>Volver a la tienda</a>";
