@@ -71,7 +71,8 @@ if (!isset($_SESSION["user_id"]) || ($_SESSION["rol"] != "admin")) {
             <img src="/ecommerce-tienda-deportiva/frontend/assets/img/logo.png" alt="Logo de la tienda" style="height: 60px; width: auto;" />
         </a>
     </div>
-    <h2 class="user-name"><i class="fa-solid fa-user-shield"></i> Modo Administrador: <?php echo $_SESSION["nombre"]; ?></h2>
+    <h2 class="user-name"><i class="fa-solid fa-user-shield"></i>Administrador: <?php echo $_SESSION["nombre"]; ?></h2>
+    <h2 class="user-name">Correo: <?php echo $_SESSION["email"]; ?></h2>
     <a href="../../backend/index.php?action=logout" class="logout-btn">
       <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
     </a>
@@ -129,8 +130,6 @@ if (!isset($_SESSION["user_id"]) || ($_SESSION["rol"] != "admin")) {
           </form>
           <div id="finalStatus" class="mt-3 text-center fw-bold"></div>
       </section>
-
-    <h4>Crear Nuevo Producto</h4>
       <section id="section-gestion" class="admin-section">
           <h3><i class="fa-solid fa-sliders"></i> Control de Inventario</h3>
           <p class="text-muted">Busca un producto por ID para modificar sus valores globales o sacarlo de las vitrinas.</p>
