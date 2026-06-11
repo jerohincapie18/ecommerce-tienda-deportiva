@@ -167,8 +167,16 @@ class ProductController
   public function doSearch($busqueda)
   {
     $productos = $this->productModel->doModelSearch($busqueda);
-    http_response_code(201);
-    echo json_encode($productos);
-    exit();
+    if($productos)
+    {
+      http_response_code(201);
+      echo json_encode($productos);
+      exit();
+    }
+    else
+    {
+      echo json_encode([]);
+      exit();
+    }
   }
 }

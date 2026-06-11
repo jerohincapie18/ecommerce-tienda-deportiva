@@ -100,7 +100,7 @@ switch ($action)
       $productController->updateProduct($data);
       break;
     case "deleteProduct":
-      $id =intval($_GET["idDelete"]);
+      $id = intval($_GET["idDelete"]);
       $productController->deleteProduct($id);
       break;
     case "updateProfile":
@@ -112,6 +112,10 @@ switch ($action)
     case "displaySearch":
       $busqueda = $_GET["busqueda"];
       $productController->doSearch($busqueda);
+      break;
+    case "checkFavs":
+      $prodId = intval($_GET["prodId"]);
+      $favoritoController->validarFavoritos($prodId);
       break;
   default:
     http_response_code(404);

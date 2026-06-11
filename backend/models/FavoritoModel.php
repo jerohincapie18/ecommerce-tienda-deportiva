@@ -46,4 +46,15 @@ class FavoritoModel {
         $stmt->close();
         return $data;
     }
+
+    public function verificarFavorito($prodId, $userId)
+    {
+        $stmt = $this->db->prepare("SELECT id FROM favoritos WHERE user_id = ? AND producto_id = ?");
+        $stmt->bind_param("ii", $userId, $prodId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $nroColumnas =$result->num_rows; //necesito saber el nro de columnas, porq el resultado solo me devolvera true siempre que se haga la consulta
+        $stmt->close();
+        return $nroColumnas;
+    }
 }
