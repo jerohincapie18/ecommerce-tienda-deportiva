@@ -69,33 +69,50 @@ switch ($action)
       $productController->getProductById($id);
       break;
     case "toggleFavorito":
-        $productoId = isset($_GET['producto_id']) ? intval($_GET['producto_id']) : 0;
-        if ($productoId <= 0) {
-            http_response_code(400);
-            echo json_encode(["success" => false, "message" => "ID de producto no válido"]);
-            exit();
-        }
-        $favoritoController->toggleFavorito($productoId);
-        break;
+      $productoId = isset($_GET['producto_id']) ? intval($_GET['producto_id']) : 0;
+      if ($productoId <= 0) {
+          http_response_code(400);
+          echo json_encode(["success" => false, "message" => "ID de producto no válido"]);
+          exit();
+      }
+      $favoritoController->toggleFavorito($productoId);
+      break;
     case "getFavoritos":
       $favoritoController->listarFavoritos();
       break;case "addToCart":
-        $id = isset($_GET['producto_id']) ? intval($_GET['producto_id']) : 0;
-        $cartController->agregar($id);
-        break;
+      $id = isset($_GET['producto_id']) ? intval($_GET['producto_id']) : 0;
+      $cartController->agregar($id);
+      break;
     case "removeFromCart":
-        $id = isset($_GET['producto_id']) ? intval($_GET['producto_id']) : 0;
-        $cartController->eliminar($id);
-        break;
+      $id = isset($_GET['producto_id']) ? intval($_GET['producto_id']) : 0;
+      $cartController->eliminar($id);
+      break;
     case "getCart":
-        $cartController->listar();
-        break;
+      $cartController->listar();
+      break;
     case "getCategory":
-        $productController->getProductsByCategory($_GET["category"]);
-        break;
+      $productController->getProductsByCategory($_GET["category"]);
+      break;
     case "getIndexProducts":
-        $productController->getAllProducts();
-        break;
+      $productController->getAllProducts();
+      break;
+    case "updateProduct":
+      $productController->updateProduct($data);
+      break;
+    case "deleteProduct":
+      $id =intval($_GET["idDelete"]);
+      $productController->deleteProduct($id);
+      break;
+    case "updateProfile":
+        $authController->updateProfile($data);
+      break;
+    case "getAdminProducts":
+      $productController->getProductsFullData();
+      break;
+    case "displaySearch":
+      $busqueda = $_GET["busqueda"];
+      $productController->doSearch($busqueda);
+      break;
   default:
     http_response_code(404);
     echo json_encode(["succes" => false, "message" => "Ruta no encontrada"]);

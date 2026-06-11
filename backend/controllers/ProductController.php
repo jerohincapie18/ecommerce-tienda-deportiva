@@ -48,6 +48,7 @@ class ProductController
           "nombre" => $data["nombre"],
           "descripcion" => $data["descripcion"],
           "precio" => floatval($data["precio"]),
+          "stock" => $data["stock"],
           "categoria" => $data["categoria"],
           "imagen_url" => $urlDB
         ];
@@ -119,6 +120,54 @@ class ProductController
   public function getAllProducts()
   {
     $productos = $this->productModel->getIndexProducts();
+    echo json_encode($productos);
+    exit();
+  }
+
+  public function updateProduct($pData)
+  {
+    $resultado = $this->productModel->updateProduct($pData);
+    if($resultado)
+    {
+      http_response_code(201);
+      echo json_encode(["success" => true, "message" => "Producto actualizado con exito"]);
+    }
+    else
+    {
+      http_response_code(500);
+      echo json_encode(["success" => false, "message" => "Error al actualizar el producto"]);
+
+    }
+  }
+
+  public function deleteProduct($idEliminar)
+  {
+    $resultado = $this->productModel->deleteProduct($idEliminar);
+    if($resultado)
+    {
+      http_response_code(201);
+      echo json_encode(["success" => true, "message" => "Producto eliminado con exito"]);
+    }
+    else
+    {
+      http_response_code(500);
+      echo json_encode(["success" => false, "message" => "Error al eliminar el producto"]);
+
+    }
+  }
+
+  public function getProductsFullData()
+  {
+    $productos = $this->productModel->getProductsFullData();
+    http_response_code(201);
+    echo json_encode($productos);
+    exit();
+  }
+
+  public function doSearch($busqueda)
+  {
+    $productos = $this->productModel->doModelSearch($busqueda);
+    http_response_code(201);
     echo json_encode($productos);
     exit();
   }

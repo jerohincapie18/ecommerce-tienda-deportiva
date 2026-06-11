@@ -12,6 +12,7 @@ CREATE TABLE productos (
     nombre VARCHAR(150) NOT NULL,
     descripcion TEXT,
     precio DECIMAL(10, 2) NOT NULL,
+    stock INT NOT NULL,
     imagen_url VARCHAR(255) NOT NULL,
     categoria VARCHAR(50) NOT NULL,
     es_carrusel TINYINT(1) DEFAULT 0,

@@ -45,26 +45,31 @@ if(!isset($_SESSION["user_id"]) || !isset($_SESSION["rol"])) {
 
 <section class="user-info">
   <h3>Información del Usuario</h3>
-  <div class="info-grid">
-    <div class="info-item">
-      <label>Nombre</label>
-      <p><?php echo $_SESSION["nombre"]; ?></p>
+  
+  <form id="formEditarPerfil" class="main-form">
+    <div class="info-grid">
+      <div class="info-item">
+        <label for="inputNombre">Nombre</label>
+        <input type="text" id="inputNombre" name="nombre" value="<?php echo $_SESSION['nombre']; ?>" disabled style="border: none; background: transparent; width: 100%; font-size: 16px; color: #2c2c2c; outline: none;">
+      </div>
+      <div class="info-item">
+        <label for="inputEmail">Email</label>
+        <input type="email" id="inputEmail" name="email" value="<?php echo $_SESSION['email']; ?>" disabled style="border: none; background: transparent; width: 100%; font-size: 16px; color: #2c2c2c; outline: none;">
+      </div>
+      
+      <div class="info-item" id="wrapperPassword" style="display: none;">
+        <label for="inputPassword">Ingrese la contraseña</label>
+        <input type="password" id="inputPassword" name="password" placeholder="Escribe la contraseña para guardar los cambios" style="border: 1px solid #d9bcbc; background: #fff; width: 100%; font-size: 16px; color: #2c2c2c; padding: 10px; border-radius: 6px; box-sizing: border-box; outline: none;" required>
+      </div>
     </div>
-    <div class="info-item">
-      <label>Apellido</label>
-     
-    </div>
-    <div class="info-item">
-      <label>Email</label>
-     
-    </div>
-    <div class="info-item">
-      <label>Género</label>
 
+    <div class="d-flex justify-content-center gap-3 mt-4">
+      <button type="button" id="btnEditar" class="edit-btn" style="background-color: transparent; border: 1px solid #5a2a2a; color: #5a2a2a; padding: 10px 20px; border-radius: 6px; cursor: pointer; transition: 0.3s;">Editar perfil</button>
+      <button type="submit" id="btnGuardar" class="edit-btn" style="display: none; background-color: #5a2a2a; border: 1px solid #5a2a2a; color: #fff; padding: 10px 20px; border-radius: 6px; cursor: pointer; transition: 0.3s;">Guardar cambios</button>
     </div>
-  </div>
-
-  <button class="edit-btn">Editar perfil</button>
+  </form>
+  <div id="statusPerfil" class="mt-3" style="font-weight: 600;"></div>
 </section>
+<script src="../assets/js/user-script.js"></script>
 </body>
 </html>

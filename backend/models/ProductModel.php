@@ -12,8 +12,8 @@ class ProductModel
 
   public function insertProduct($data)
   {
-    $stmt = $this->db->prepare("INSERT INTO productos (nombre, descripcion, precio, imagen_url, categoria) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssdss", $data["nombre"], $data["descripcion"], $data["precio"], $data["imagen_url"], $data["categoria"]);
+    $stmt = $this->db->prepare("INSERT INTO productos (nombre, descripcion, precio, stock, imagen_url, categoria) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssdiss", $data["nombre"], $data["descripcion"], $data["precio"], $data["stock"], $data["imagen_url"], $data["categoria"]);
     $stmt->execute();
     $affected = $stmt->affected_rows;
     $stmt->close();
@@ -84,4 +84,58 @@ class ProductModel
     return $data;
   }
 
+  //actualizar producto
+  public function updateProduct($pData)
+  {
+    $stmt = $this->db->prepare("UPDATE productos SET nombre = ?, categoria = ?, descripcion = ?, precio = ?, stock = ? WHERE id = ?");
+    $nombre = $pData["nombre"];
+    $categoria = $pData["categoria"];
+    $descripcion = $pData["descripcion"];
+    $id = $pData["id"];
+    $stock = $pData["stock"];
+    $precio = floatval($pData["precio"]);
+    $stmt->bind_param("sssdii", $nombre, $categoria, $descripcion,  $precio, $stock, $id);
+    $resultado = $stmt->execute();
+    $stmt->close();
+    return $resultado;
+  }
+  
+  //borrar producto
+  public function deleteProduct($idEliminar)
+  {
+    $stmt = $this->db->prepare("DELETE FROM productos WHERE id = ?");
+    $stmt->bind_param("i", $idEliminar);
+    //rescato si la comnsulta fue exitosa o no
+    $resultado = $stmt->execute();
+    $stmt->close();
+    return $resultado;
+  }
+
+  //para el admin dashboar
+  public function getProductsFullData()
+  {
+    $stmt = $this->db->prepare("SELECT id, nombre, categoria, precio, stock, imagen_url FROM productos");
+    $stmt->execute();
+    $resultado = $stmt->get_result(); //rescato el resultado
+    $data = $resultado->fetch_all(MYSQLI_ASSOC); //lo guardo en un arreglo asociativo
+    $stmt->close();
+    return $data;
+  }
+
+  //consulta para la barra de busqueda
+  public function doModelSearch($busqueda)
+  {
+    //consulta para buscar por coincidencia en la descripcion o nombre
+    $sql = "SELECT id, nombre, descripcion, precio, stock, imagen_url, categoria 
+            FROM productos 
+            WHERE nombre LIKE ? OR descripcion LIKE ?";
+    $stmt = $this->db->prepare($sql);
+    $busquedaFinal = "%" . $busqueda . "%";
+    $stmt->bind_param("ss", $busquedaFinal, $busquedaFinal);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+    $data = $resultado->fetch_all(MYSQLI_ASSOC);
+    $stmt->close();
+    return $data;
+  }
 }

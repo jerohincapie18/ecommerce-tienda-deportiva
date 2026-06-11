@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("det-nombre").innerText = producto.nombre;
             document.getElementById("det-categoria").innerText = producto.categoria;
             document.getElementById("det-descripcion").innerText = producto.descripcion ? producto.descripcion : "Sin descripción disponible para este artículo.";
+            document.getElementById("det-stock").innerText = producto.stock;
             document.getElementById("det-precio").innerText = `$${parseFloat(producto.precio).toLocaleString('es-CO')}`;
             document.getElementById("det-imagen").src = producto.imagen_url;
             document.getElementById("det-imagen").alt = producto.nombre;
