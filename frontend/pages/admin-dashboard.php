@@ -64,22 +64,7 @@ if (!isset($_SESSION["user_id"]) || ($_SESSION["rol"] != "admin")) {
     </style>
 </head>
 <body>
- <div class="sidebar">
-    <a href="/ecommerce-tienda-deportiva/frontend/index.php">
-        <img src="/ecommerce-tienda-deportiva/frontend/assets/img/logo.png" alt="Logo de la tienda" style="height: 60px; width: auto;" />
-    </a>
-    
-    <ul class="menu">
-      <li><a href="/ecommerce-tienda-deportiva/frontend/index.php">casa</a></li>
-      <li><a href="catalogo.php">Productos</a></li>
-      <li><a href="#">Pedidos</a></li>
-      <li><a href="#">Usuarios</a></li>
-      <li><a href="#">Métricas</a></li>
-    </ul>
-    <div class="user">
-      <p>Hola Administrador<br><strong><?php echo $_SESSION["nombre"]; ?></strong></p>
-      <a href="../../backend/index.php?action=logout" class="logout">Cerrar Sesión</a>
-
+ 
   <header>
     <div class="header-logo">
         <a href="/ecommerce-tienda-deportiva/frontend/index.php">
