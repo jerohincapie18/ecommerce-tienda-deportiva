@@ -1,7 +1,3 @@
-OJO AL HACER PUSH, RECUERDEN QUE CUANDO HAGAN 'git add' NO PONGAN LA CARPETA DE backend/
-* **`backend/`**: Tiene la conexion LOCAL a la base de datos, no suban eso aun asi visual se los marque como modified
-* Otra nota: el carrusel esta roto lol
-
 QUERYS:
 
 CREATE DATABASE users_db;
